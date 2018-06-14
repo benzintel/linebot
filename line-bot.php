@@ -61,8 +61,8 @@ class BOT_API extends LINEBot {
 				
                 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
                     $this->isText = true;
-                    // $this->text   = $event['message']['text'];
-                    $this->text   = 'เห้ยๆๆๆๆ';
+                    $this->text   = $event['message']['text'];
+                    // $this->text   = 'เห้ยๆๆๆๆ';
                 }
 				
                 if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
@@ -94,7 +94,7 @@ class BOT_API extends LINEBot {
         $messageBuilder = new TextMessageBuilder($message);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
+            'messages'   => $messageBuilder,
         ]);
     }
 	
