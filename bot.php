@@ -1,7 +1,7 @@
 <?php
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
-$ACCESS_TOKEN = 'yZ9BNMGXsjRnV7rLCMXGBPkHczkLYQogduWkeD5oscd384zV057P5uPjgT4/EF6CaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c2fxYyXxoCyer2KL1uGUWQCeqkNnJ1K3Ql9ntJZNr61NAdB04t89/1O/w1cDnyilFU='; 
+$ACCESS_TOKEN = 'ouhqskdRP/sUP8uwpjAadPDJz6rj1Y3IR0/ZznmHBgsPmYq6Q+hzdEJ4OXgyw/8NaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c0XIOEKRfUEQAsHVi4PbQU4HEk9GOq/cmdR3iRkQE9e5gdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'ba6e01c3eb0671a32e7d9fb3dbabd67d';
 
 
@@ -13,38 +13,34 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
 if ( sizeof($request_array['events']) > 0 )
 {
 
- foreach ($request_array['events'] as $event)
- {
-  $reply_message = '';
-  $reply_token = $event['replyToken'];
+	foreach ($request_array['events'] as $event){
+		$reply_message = '';
+		$reply_token = $event['replyToken'];
 
-  if ( $event['type'] == 'message' ) 
-  {
-   if( $event['message']['type'] == 'text' )
-   {
-    $text = $event['message']['text'];
-    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว 01';
-   }
-   else
-    $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว 02';
-  
-  }
-  else
-   $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว 03';
- 
-  if( strlen($reply_message) > 0 )
-  {
-   //$reply_message = iconv("tis-620","utf-8",$reply_message);
-   $data = [
-    'replyToken' => $reply_token,
-    'messages' => [['type' => 'text', 'text' => $reply_message]]
-   ];
-   $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+		if ( $event['type'] == 'message' ) {
+			if( $event['message']['type'] == 'text' ) {
+			    $text = $event['message']['text'];
+			    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว 01';
+			}else{
+				$reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว 02';	  
+			}
+		}
+		else{
+			$reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว 03';
+			 
+			if( strlen($reply_message) > 0 ) {
+				//$reply_message = iconv("tis-620","utf-8",$reply_message);
+				$data = [
+					'replyToken' => $reply_token,
+					'messages' => [['type' => 'text', 'text' => $reply_message]]
+				];
+				$post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-   $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
-   echo "Result: ".$send_result."\r\n";
-  }
- }
+				$send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
+				echo "Result: ".$send_result."\r\n";
+			}
+		}
+	}
 }
 
 echo "OK";
