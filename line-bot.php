@@ -61,7 +61,8 @@ class BOT_API extends LINEBot {
 				
                 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
                     $this->isText = true;
-                    $this->text   = $event['message']['text'];
+                    // $this->text   = $event['message']['text'];
+                    $this->text   = 'เห้ยๆๆๆๆ';
                 }
 				
                 if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
