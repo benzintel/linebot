@@ -56,7 +56,11 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
     $text = $event['message']['text'];
-    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+    if( $text == 'สวัสดี') {
+    	$reply_message = 'สวัสดีนายท่าน ';
+    }else{
+    	$reply_message = 'สวัสดีนายท่าน '. $text;
+    }
    }
    else
     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
