@@ -51,7 +51,70 @@ if ( sizeof($request_array['events']) > 0 ) {
 
             $data = [
                 'to' => $event['source']['userId'],
-                'messages' => json_decode('{"type":"bubble","header":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"header"}]},"hero":{"type":"image","url":"https://www.linefriends.com/img/img_sec.jpg","size":"full","aspectRatio":"2:1"},"body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"body"},{"type":"text","text":"body"}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"footer"}]}}', TRUE)
+                'messages' => array (
+  'type' => 'bubble',
+  'styles' => 
+  array (
+    'header' => 
+    array (
+      'backgroundColor' => '#ffaaaa',
+    ),
+    'body' => 
+    array (
+      'backgroundColor' => '#aaffaa',
+    ),
+    'footer' => 
+    array (
+      'backgroundColor' => '#aaaaff',
+    ),
+  ),
+  'header' => 
+  array (
+    'type' => 'box',
+    'layout' => 'vertical',
+    'contents' => 
+    array (
+      0 => 
+      array (
+        'type' => 'text',
+        'text' => 'header',
+      ),
+    ),
+  ),
+  'hero' => 
+  array (
+    'type' => 'image',
+    'url' => 'https://example.com/flex/images/image.jpg',
+    'size' => 'full',
+    'aspectRatio' => '2:1',
+  ),
+  'body' => 
+  array (
+    'type' => 'box',
+    'layout' => 'vertical',
+    'contents' => 
+    array (
+      0 => 
+      array (
+        'type' => 'text',
+        'text' => 'body',
+      ),
+    ),
+  ),
+  'footer' => 
+  array (
+    'type' => 'box',
+    'layout' => 'vertical',
+    'contents' => 
+    array (
+      0 => 
+      array (
+        'type' => 'text',
+        'text' => 'footer',
+      ),
+    ),
+  ),
+)
             ];
 
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
