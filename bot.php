@@ -1,7 +1,7 @@
 <?php
 
 // Reply
-$API_URL = 'https://api.line.me/v2/bot/message/message';
+$API_URL = 'https://api.line.me/v2/bot/message/message/push';
 
 
 $ACCESS_TOKEN = 'ouhqskdRP/sUP8uwpjAadPDJz6rj1Y3IR0/ZznmHBgsPmYq6Q+hzdEJ4OXgyw/8NaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c0XIOEKRfUEQAsHVi4PbQU4HEk9GOq/cmdR3iRkQE9e5gdB04t89/1O/w1cDnyilFU='; 
@@ -42,9 +42,10 @@ if ( sizeof($request_array['events']) > 0 ) {
         {
             //$reply_message = iconv("tis-620","utf-8",$reply_message);
             $data = [
-            'replyToken' => $reply_token,
-            'messages' => [['type' => 'text', 'text' => $reply_message]]
-            // 'messages'  =>  '{"type":"bubble","header":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"header"}]},"hero":{"type":"image","url":"https://www.linefriends.com/img/img_sec.jpg","size":"full","aspectRatio":"2:1"},"body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"body"},{"type":"text","text":"body"}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"footer"}]}}'
+            // 'replyToken' => $reply_token,
+            // 'messages' => [['type' => 'text', 'text' => $reply_message]]
+                'to': `zzzzz`,
+                'messages'  =>  '{"type":"bubble","header":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"header"}]},"hero":{"type":"image","url":"https://www.linefriends.com/img/img_sec.jpg","size":"full","aspectRatio":"2:1"},"body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"body"},{"type":"text","text":"body"}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"footer"}]}}'
             ];
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
             $send_result = send_reply_message($API_FLEX_URL, $POST_HEADER, $post_body);
