@@ -53,8 +53,25 @@ if ( sizeof($request_array['events']) > 0 ) {
                 'to' => $event['source']['userId'],
                 'messages' => [
                     [
-                        'type' => 'text', 
-                        'text' => 'testtttt'
+                        'type'     => 'flex', 
+                        'altText'  => 'This is a Flex Message',
+                        'contents' =>  [
+                                'type'  =>  'bubble',
+                                'body'  =>  [
+                                        'type'  =>  'box',
+                                        'layout'    =>  'horizontal',
+                                        'contents'  =>  [
+                                            [
+                                                'type'  =>  'text',
+                                                'text'  =>  'Hello,'
+                                            ],
+                                            [
+                                                'type'  =>  'text',
+                                                'text'  =>  'Hello,'
+                                            ]
+                                        ]
+                                    ]
+                            ]
                     ]
                 ]
             ];
