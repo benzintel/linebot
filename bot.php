@@ -57,6 +57,17 @@ if ( sizeof($request_array['events']) > 0 ) {
                         'altText' => 'This is a Flex Message',
                         'contents'  =>  [
                             'type'  =>  'bubble',
+                            'hero'  =>  [
+                                'type'  =>  'image',
+                                'url'   =>  'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png',
+                                'size'  =>  'full',
+                                'aspectRatio'   =>  '20:13',
+                                'aspectMode'    =>  'cover',
+                                'action'    =>  [
+                                    'type'  =>  'uri',
+                                    'uri'   =>  'bitkub.com'
+                                ]
+                            ],
                             'body'  =>  [
                                 'type'  =>  'box',
                                 'layout'    =>  'horizontal',
