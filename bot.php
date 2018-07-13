@@ -1,9 +1,7 @@
 <?php
 
-// Reply
-$API_URL = 'https://api.line.me/v2/bot/message/message/push';
 
-
+$API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'ouhqskdRP/sUP8uwpjAadPDJz6rj1Y3IR0/ZznmHBgsPmYq6Q+hzdEJ4OXgyw/8NaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c0XIOEKRfUEQAsHVi4PbQU4HEk9GOq/cmdR3iRkQE9e5gdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'ba6e01c3eb0671a32e7d9fb3dbabd67d';
 
@@ -41,24 +39,38 @@ if ( sizeof($request_array['events']) > 0 ) {
         if( strlen($reply_message) > 0 )
         {
             //$reply_message = iconv("tis-620","utf-8",$reply_message);
-            $json = json_decode('{"type":"bubble","header":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"header"}]},"hero":{"type":"image","url":"https://www.linefriends.com/img/img_sec.jpg","size":"full","aspectRatio":"2:1"},"body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"body"},{"type":"text","text":"body"}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"footer"}]}}', TRUE);
-            
             $data = [
-            // 'replyToken' => $reply_token,
-            // 'messages' => [['type' => 'text', 'text' => $reply_message]]
-                'to' => 'zzzzz',
-                'messages'  =>  $json
+                'replyToken' => $reply_token,
+                // 'messages' => [['type' => 'text', 'text' => $reply_message]]
+                'messages' => [['type' => 'text', 'text' => json_encode($request_array)]]
             ];
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
-            $send_result = send_reply_message($API_FLEX_URL, $POST_HEADER, $post_body);
 
-
+            $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
             echo "Result: ".$send_result."\r\n";
         }
     }
 }
 
 echo "OK";
+
+
+
+
+// $data = [
+//     'to' => 'zzzzz',
+//     'messages' => [
+//         [
+//             'type' => 'text', 
+//             'text' => 'testtttt'
+//         ]
+//     ]
+// ];
+
+// $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+// $send_result = send_reply_message($API_URL.'/push', $POST_HEADER, $post_body);
+
 
 function send_reply_message($url, $post_header, $post_body)
 {
