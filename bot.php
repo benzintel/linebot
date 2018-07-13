@@ -53,25 +53,46 @@ if ( sizeof($request_array['events']) > 0 ) {
                 'to' => $event['source']['userId'],
                 'messages' => [
                     [
-                        'type'     => 'flex', 
+                        'type'     => 'bubble', 
                         'altText'  => 'This is a Flex Message',
-                        'contents' =>  [
-                                'type'  =>  'bubble',
-                                'body'  =>  [
-                                        'type'  =>  'box',
-                                        'layout'    =>  'horizontal',
-                                        'contents'  =>  [
-                                            [
-                                                'type'  =>  'text',
-                                                'text'  =>  'Hello,'
-                                            ],
-                                            [
-                                                'type'  =>  'text',
-                                                'text'  =>  'Hello,'
-                                            ]
+                        'header'   =>  [
+                            'type'      =>  'box',
+                            'layout'    =>  'vertical',
+                            'contents'  =>  [
+                                'type'  =>  'text',
+                                'text'  =>  'Header'
+                            ]
+                        ],
+                        'hero'  => [
+                            'type'  => 'image',
+                            'url'   => 'https://www.linefriends.com/img/img_sec.jpg',
+                            'size'  => 'full',
+                            'aspectRatio'   => '2:1'
+                        ],
+                        'body' =>  [
+                                'type'      =>  'box',
+                                'layout'    =>  'vertical',
+                                'contents'  =>  [
+                                        [
+                                            'type'  => 'text',
+                                            'text'  => 'body'
+                                        ],
+                                        [
+                                            'type'  => 'text',
+                                            'text'  => 'body'
                                         ]
                                     ]
-                            ]
+                        ],
+                        'footer'    =>  [
+                            'type'      =>  'box',
+                            'layout'    =>  'vertical',
+                            'contents'  =>  [
+                                        [
+                                            'type'  => 'text',
+                                            'text'  => 'footer'
+                                        ]
+                                    ]
+                        ]
                     ]
                 ]
             ];
