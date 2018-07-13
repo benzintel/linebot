@@ -65,7 +65,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                                 'aspectMode'    =>  'cover',
                                 'action'    =>  [
                                     'type'  =>  'uri',
-                                    'uri'   =>  'bitkub.com'
+                                    'uri'   =>  'https://bitkub.com'
                                 ]
                             ],
                             'body'  =>  [
