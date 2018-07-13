@@ -50,7 +50,7 @@ if ( sizeof($request_array['events']) > 0 ) {
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
             $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
-            $json = '{"type":"flex","altText":"this is a flex message","contents":{"type":"bubble","body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"hello"},{"type":"text","text":"world"}]}}}';
+            $json = '{"type":"bubble","body":{"type":"box","layout":"vertical","contents":[{"type":"image","url":"https://example.com/flex/images/image.jpg","size":"full"}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"spacer","size":"xl"},{"type":"button","action":{"type":"uri","label":"Tap me","uri":"https://example.com"},"style":"primary","color":"#0000ff"}]}}';
             send_reply_message($API_FLEX_URL, $POST_HEADER, $json);
             echo "Result: ".$send_result."\r\n";
         }
