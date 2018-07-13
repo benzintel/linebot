@@ -1,6 +1,11 @@
 <?php
 
+// Reply
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
+// Flex
+$API_FLEX_URL = 'https://api.line.me/v2/bot/message/push';
+
+
 $ACCESS_TOKEN = 'ouhqskdRP/sUP8uwpjAadPDJz6rj1Y3IR0/ZznmHBgsPmYq6Q+hzdEJ4OXgyw/8NaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c0XIOEKRfUEQAsHVi4PbQU4HEk9GOq/cmdR3iRkQE9e5gdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'ba6e01c3eb0671a32e7d9fb3dbabd67d';
 
@@ -45,6 +50,8 @@ if ( sizeof($request_array['events']) > 0 ) {
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
             $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
+            $json = '{"type":"flex","altText":"this is a flex message","contents":{"type":"bubble","body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":"hello"},{"type":"text","text":"world"}]}}}';
+            send_reply_message($API_FLEX_URL, $POST_HEADER, $json);
             echo "Result: ".$send_result."\r\n";
         }
     }
