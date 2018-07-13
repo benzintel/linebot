@@ -1,7 +1,7 @@
 <?php
 
 // Reply
-$API_URL = 'https://api.line.me/v2/bot/message/reply';
+$API_URL = 'https://api.line.me/v2/bot/message/message';
 
 
 $ACCESS_TOKEN = 'ouhqskdRP/sUP8uwpjAadPDJz6rj1Y3IR0/ZznmHBgsPmYq6Q+hzdEJ4OXgyw/8NaLy6GLAZYYbLhF/7S6i8K07k3yxT0sWcMEa6ixgJ2c0XIOEKRfUEQAsHVi4PbQU4HEk9GOq/cmdR3iRkQE9e5gdB04t89/1O/w1cDnyilFU='; 
