@@ -56,8 +56,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                         'type'     => 'flex', 
                         'altText'  => 'This is a Flex Message',
                         'contents' => [
-                            'type'     => 'bubble', 
-                            'altText'  => 'This is a Flex Message',
+                            'type'     => 'bubble',
                             'header'   =>  [
                                 'type'      =>  'box',
                                 'layout'    =>  'vertical',
@@ -95,7 +94,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                 'text'  => 'footer'
                                             ]
                                         ]
-                            ]
+                            ],
+                            'flex'  => 0
                         ]
                     ]
                 ]
