@@ -49,155 +49,47 @@ if ( sizeof($request_array['events']) > 0 ) {
 
             $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
 
-            $data = [
-                'to' => $event['source']['userId'],
-                'messages' => [
-                    [
-                        'type' => 'flex', 
-                        'altText' => 'This is a Flex Message',
-                        'contents'  =>  [
-                            'type'  =>  'bubble',
-                            'hero'  =>  [
-                                'type'  =>  'image',
-                                'url'   =>  'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png',
-                                'size'  =>  'full',
-                                'aspectRatio'   =>  '20:13',
-                                'aspectMode'    =>  'cover',
-                                'action'    =>  [
-                                    'type'  =>  'uri',
-                                    'uri'   =>  'https://bitkub.com'
-                                ]
-                            ],
-                            'body'  =>  [
-                                'type'  =>  'box',
-                                'layout'    =>  'vertical',
-                                'spacing'   =>  'md',
-                                'contents'  =>  [
-                                    [
-                                        'type'      => 'box',
-                                        'layout'    => 'vertical',
-                                        'margin'    => 'lg',
-                                        'spacing'   => 'sm',
-                                        'contents'  => [
-                                            [
-                                                'type'      => 'text',
-                                                'text'      => 'CLICK TO CHECK CURRENT PRICE',
-                                                'weight'    => 'bold',
-                                                'color'     => '#1DB446',
-                                                'size'      => 'sm'
-                                            ]
-                                        ]
-                                    ],
-                                    [
-                                        'type'  => 'separator',
-                                        'margin'=> 'lg'
-                                    ],
-                                    [
-                                        'type'      => 'box',
-                                        'layout'    => 'vertical',
-                                        'margin'    => 'lg',
-                                        'spacing'   => 'sm',
-                                        'contents'  =>  [
-                                            'type'      => 'box',
-                                            'layout'    => 'horizontal',
-                                            'spacing'   => 'sm',
-                                            'contents'  =>  [
-                                                [
-                                                    'type'      => 'box',
-                                                    'layout'    => 'horizontal',
-                                                    'spacing'   => 'sm',
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'BTC',
-                                                            'displayText'   => 'Bitcoin',
-                                                            'data'          => 'BTC'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'ETH',
-                                                            'displayText'   => 'ETH',
-                                                            'data'          => 'ETH'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'WAN',
-                                                            'displayText'   => 'WAN',
-                                                            'data'          => 'WAN'
-                                                        ]
-                                                    ]
-                                                ],
-                                                [
-                                                    'type'      => 'box',
-                                                    'layout'    => 'horizontal',
-                                                    'spacing'   => 'sm',
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'ADA',
-                                                            'displayText'   => 'ADA',
-                                                            'data'          => 'ADA'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'OMG',
-                                                            'displayText'   => 'OMG',
-                                                            'data'          => 'OMG'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'XRP',
-                                                            'displayText'   => 'XRP',
-                                                            'data'          => 'XRP'
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
+            // $data = [
+            //     'to' => $event['source']['userId'],
+            //     'messages' => [
+            //         [
+            //             'type' => 'flex', 
+            //             'altText' => 'This is a Flex Message',
+            //             'contents'  =>  [
+            //                 'type'  =>  'bubble',
+            //                 'hero'  =>  [
+            //                     'type'  =>  'image',
+            //                     'url'   =>  'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png',
+            //                     'size'  =>  'full',
+            //                     'aspectRatio'   =>  '20:13',
+            //                     'aspectMode'    =>  'cover',
+            //                     'action'    =>  [
+            //                         'type'  =>  'uri',
+            //                         'uri'   =>  'https://bitkub.com'
+            //                     ]
+            //                 ],
+            //                 'body'  =>  [
+            //                     'type'  =>  'box',
+            //                     'layout'    =>  'horizontal',
+            //                     'contents'  =>  [
+            //                         [
+            //                             'type'  =>  'text',
+            //                             'text'  =>  'Hello,'
+            //                         ],
+            //                         [
+            //                             'type'  =>  'text',
+            //                             'text'  =>  'World!'
+            //                         ]
+            //                     ]
+            //                 ]
+            //             ]
+            //         ]
+            //     ]
+            // ];
 
-                                ]
-                            ],
-                            'footer'    =>  [
-                                'type'      => 'box',
-                                'layout'    => 'vertical',
-                                'contents'  =>  [
-                                    'type'  => 'button',
-                                    'margin'=> 'sm',
-                                    'action'=> [
-                                        'type'  => 'uri',
-                                        'label' => 'CHECK OUT BITKUB MARKET',
-                                        'uri'   => 'https://www.bitkub.com/market'
-                                    ],
-                                    'style' => 'secondary'
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ];
+            $data = '{"to":"'. $event['source']['userId'] .'","messages":[{"type":"flex","altText":"This is a Flex Message","contents":{"type":"bubble","hero":{"type":"image","url":"https://bitkubblockchain.com/wp-content/uploads/2018/01/line-menu-test.png","size":"full","aspectRatio":"20:13","aspectMode":"cover"},"body":{"type":"box","layout":"vertical","spacing":"md","contents":[{"type":"box","layout":"vertical","margin":"lg","spacing":"sm","contents":[{"type":"text","text":"CLICK TO CHECK CURRENT PRICE","weight":"bold","color":"#1DB446","size":"sm"}]},{"type":"separator","margin":"lg"},{"type":"box","layout":"vertical","margin":"lg","spacing":"sm","contents":[{"type":"box","layout":"horizontal","spacing":"sm","contents":[{"type":"button","style":"primary","action":{"type":"postback","label":"BTC","displayText":"Bitcoin","data":"BTC"}},{"type":"button","style":"primary","action":{"type":"postback","label":"ETH","displayText":"ETH","data":"ETH"}},{"type":"button","style":"primary","action":{"type":"postback","label":"WAN","displayText":"WAN","data":"WAN"}}]},{"type":"box","layout":"horizontal","spacing":"sm","contents":[{"type":"button","style":"primary","action":{"type":"postback","label":"ADA","displayText":"ADA","data":"ADA"}},{"type":"button","style":"primary","action":{"type":"postback","label":"OMG","displayText":"OMG","data":"OMG"}},{"type":"button","style":"primary","action":{"type":"postback","label":"XRP","displayText":"XRP","data":"XRP"}}]}]}]},"footer":{"type":"box","layout":"vertical","contents":[{"type":"button","margin":"sm","action":{"type":"uri","label":"CHECK OUT BITKUB MARKET","uri":"https://www.bitkub.com/market"},"style":"secondary"}]}}}]}';
 
-            $post_body = json_encode($data, JSON_FORCE_OBJECT);
+            $post_body = $data;
 
             $send_result = send_reply_message($API_URL.'/push', $POST_HEADER, $post_body);
 
@@ -207,157 +99,7 @@ if ( sizeof($request_array['events']) > 0 ) {
     }
 }
 
-
-$data = [
-                'to' => 'userId',
-                'messages' => [
-                    [
-                        'type' => 'flex', 
-                        'altText' => 'This is a Flex Message',
-                        'contents'  =>  [
-                            'type'  =>  'bubble',
-                            'hero'  =>  [
-                                'type'  =>  'image',
-                                'url'   =>  'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png',
-                                'size'  =>  'full',
-                                'aspectRatio'   =>  '20:13',
-                                'aspectMode'    =>  'cover',
-                                'action'    =>  [
-                                    'type'  =>  'uri',
-                                    'uri'   =>  'https://bitkub.com'
-                                ]
-                            ],
-                            'body'  =>  [
-                                'type'  =>  'box',
-                                'layout'    =>  'vertical',
-                                'spacing'   =>  'md',
-                                'contents'  =>  [
-                                    [
-                                        'type'      => 'box',
-                                        'layout'    => 'vertical',
-                                        'margin'    => 'lg',
-                                        'spacing'   => 'sm',
-                                        'contents'  => [
-                                            [
-                                                'type'      => 'text',
-                                                'text'      => 'CLICK TO CHECK CURRENT PRICE',
-                                                'weight'    => 'bold',
-                                                'color'     => '#1DB446',
-                                                'size'      => 'sm'
-                                            ]
-                                        ]
-                                    ],
-                                    [
-                                        'type'  => 'separator',
-                                        'margin'=> 'lg'
-                                    ],
-                                    [
-                                        'type'      => 'box',
-                                        'layout'    => 'vertical',
-                                        'margin'    => 'lg',
-                                        'spacing'   => 'sm',
-                                        'contents'  =>  [
-                                            'type'      => 'box',
-                                            'layout'    => 'horizontal',
-                                            'spacing'   => 'sm',
-                                            'contents'  =>  [
-                                                [
-                                                    'type'      => 'box',
-                                                    'layout'    => 'horizontal',
-                                                    'spacing'   => 'sm',
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'BTC',
-                                                            'displayText'   => 'Bitcoin',
-                                                            'data'          => 'BTC'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'ETH',
-                                                            'displayText'   => 'ETH',
-                                                            'data'          => 'ETH'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'WAN',
-                                                            'displayText'   => 'WAN',
-                                                            'data'          => 'WAN'
-                                                        ]
-                                                    ]
-                                                ],
-                                                [
-                                                    'type'      => 'box',
-                                                    'layout'    => 'horizontal',
-                                                    'spacing'   => 'sm',   
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'ADA',
-                                                            'displayText'   => 'ADA',
-                                                            'data'          => 'ADA'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'OMG',
-                                                            'displayText'   => 'OMG',
-                                                            'data'          => 'OMG'
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'type'  => 'button',
-                                                        'style' => 'primary',
-                                                        'action'=> [
-                                                            'type'          => 'postback',
-                                                            'label'         => 'XRP',
-                                                            'displayText'   => 'XRP',
-                                                            'data'          => 'XRP'
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-
-                                ]
-                            ],
-                            'footer'    =>  [
-                                'type'      => 'box',
-                                'layout'    => 'vertical',
-                                'contents'  =>  [
-                                    'type'  => 'button',
-                                    'margin'=> 'sm',
-                                    'action'=> [
-                                        'type'  => 'uri',
-                                        'label' => 'CHECK OUT BITKUB MARKET',
-                                        'uri'   => 'https://www.bitkub.com/market'
-                                    ],
-                                    'style' => 'secondary'
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ];
-
-echo json_encode($data, JSON_FORCE_OBJECT);
-// echo "OK";
+echo "OK";
 
 
 
