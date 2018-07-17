@@ -103,6 +103,9 @@ if ( sizeof($request_array['events']) > 0 ) {
                                             'spacing'   => 'sm',
                                             'contents'  =>  [
                                                 [
+                                                    'type'      => 'box',
+                                                    'layout'    => 'horizontal',
+                                                    'spacing'   => 'sm',
                                                     [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
@@ -135,6 +138,9 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                     ]
                                                 ],
                                                 [
+                                                    'type'      => 'box',
+                                                    'layout'    => 'horizontal',
+                                                    'spacing'   => 'sm',
                                                     [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
@@ -256,6 +262,9 @@ $data = [
                                             'spacing'   => 'sm',
                                             'contents'  =>  [
                                                 [
+                                                    'type'      => 'box',
+                                                    'layout'    => 'horizontal',
+                                                    'spacing'   => 'sm',
                                                     [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
@@ -288,6 +297,9 @@ $data = [
                                                     ]
                                                 ],
                                                 [
+                                                    'type'      => 'box',
+                                                    'layout'    => 'horizontal',
+                                                    'spacing'   => 'sm',   
                                                     [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
@@ -345,7 +357,7 @@ $data = [
             ];
 
 echo json_encode($data);
-echo "OK";
+// echo "OK";
 
 
 
