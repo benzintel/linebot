@@ -106,7 +106,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                     'type'      => 'box',
                                                     'layout'    => 'horizontal',
                                                     'spacing'   => 'sm',
-                                                    {
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -115,8 +115,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'Bitcoin',
                                                             'data'          => 'BTC'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -125,8 +125,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'ETH',
                                                             'data'          => 'ETH'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -135,13 +135,13 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'WAN',
                                                             'data'          => 'WAN'
                                                         ]
-                                                    }
+                                                    ]
                                                 ],
                                                 [
                                                     'type'      => 'box',
                                                     'layout'    => 'horizontal',
                                                     'spacing'   => 'sm',
-                                                    {
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -150,8 +150,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'ADA',
                                                             'data'          => 'ADA'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -160,8 +160,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'OMG',
                                                             'data'          => 'OMG'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -170,7 +170,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                                                             'displayText'   => 'XRP',
                                                             'data'          => 'XRP'
                                                         ]
-                                                    }
+                                                    ]
                                                 ]
                                             ]
                                         ]
@@ -197,7 +197,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                 ]
             ];
 
-            $post_body = json_encode($data);
+            $post_body = json_encode($data, JSON_FORCE_OBJECT);
 
             $send_result = send_reply_message($API_URL.'/push', $POST_HEADER, $post_body);
 
@@ -265,7 +265,7 @@ $data = [
                                                     'type'      => 'box',
                                                     'layout'    => 'horizontal',
                                                     'spacing'   => 'sm',
-                                                    {
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -274,8 +274,8 @@ $data = [
                                                             'displayText'   => 'Bitcoin',
                                                             'data'          => 'BTC'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -284,8 +284,8 @@ $data = [
                                                             'displayText'   => 'ETH',
                                                             'data'          => 'ETH'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -294,13 +294,13 @@ $data = [
                                                             'displayText'   => 'WAN',
                                                             'data'          => 'WAN'
                                                         ]
-                                                    }
+                                                    ]
                                                 ],
                                                 [
                                                     'type'      => 'box',
                                                     'layout'    => 'horizontal',
                                                     'spacing'   => 'sm',   
-                                                    {
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -309,8 +309,8 @@ $data = [
                                                             'displayText'   => 'ADA',
                                                             'data'          => 'ADA'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -319,8 +319,8 @@ $data = [
                                                             'displayText'   => 'OMG',
                                                             'data'          => 'OMG'
                                                         ]
-                                                    },
-                                                    {
+                                                    ],
+                                                    [
                                                         'type'  => 'button',
                                                         'style' => 'primary',
                                                         'action'=> [
@@ -329,7 +329,7 @@ $data = [
                                                             'displayText'   => 'XRP',
                                                             'data'          => 'XRP'
                                                         ]
-                                                    }
+                                                    ]
                                                 ]
                                             ]
                                         ]
@@ -356,7 +356,7 @@ $data = [
                 ]
             ];
 
-echo json_encode($data);
+echo json_encode($data, JSON_FORCE_OBJECT);
 // echo "OK";
 
 
