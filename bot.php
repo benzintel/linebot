@@ -70,16 +70,120 @@ if ( sizeof($request_array['events']) > 0 ) {
                             ],
                             'body'  =>  [
                                 'type'  =>  'box',
-                                'layout'    =>  'horizontal',
+                                'layout'    =>  'vertical',
+                                'spacing'   =>  'md',
                                 'contents'  =>  [
                                     [
-                                        'type'  =>  'text',
-                                        'text'  =>  'Hello,'
+                                        'type'      => 'box',
+                                        'layout'    => 'vertical',
+                                        'margin'    => 'lg',
+                                        'spacing'   => 'sm',
+                                        'contents'  => [
+                                            [
+                                                'type'      => 'text',
+                                                'text'      => 'CLICK TO CHECK CURRENT PRICE',
+                                                'weight'    => 'bold',
+                                                'color'     => '#1DB446',
+                                                'size'      => 'sm'
+                                            ]
+                                        ]
                                     ],
                                     [
-                                        'type'  =>  'text',
-                                        'text'  =>  'World!'
+                                        'type'  => 'separator',
+                                        'margin'=> 'lg'
+                                    ],
+                                    [
+                                        'type'      => 'box',
+                                        'layout'    => 'vertical',
+                                        'margin'    => 'lg',
+                                        'spacing'   => 'sm',
+                                        'contents'  =>  [
+                                            'type'      => 'box',
+                                            'layout'    => 'horizontal',
+                                            'spacing'   => 'sm',
+                                            'contents'  =>  [
+                                                [
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'BTC',
+                                                            'displayText'   => 'Bitcoin',
+                                                            'data'          => 'BTC'
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'ETH',
+                                                            'displayText'   => 'ETH',
+                                                            'data'          => 'ETH'
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'WAN',
+                                                            'displayText'   => 'WAN',
+                                                            'data'          => 'WAN'
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'ADA',
+                                                            'displayText'   => 'ADA',
+                                                            'data'          => 'ADA'
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'OMG',
+                                                            'displayText'   => 'OMG',
+                                                            'data'          => 'OMG'
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'type'  => 'button',
+                                                        'style' => 'primary',
+                                                        'action'=> [
+                                                            'type'          => 'postback',
+                                                            'label'         => 'XRP',
+                                                            'displayText'   => 'XRP',
+                                                            'data'          => 'XRP'
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
                                     ]
+
+                                ]
+                            ],
+                            'footer'    =>  [
+                                'type'      => 'box',
+                                'layout'    => 'vertical',
+                                'contents'  =>  [
+                                    'type'  => 'button',
+                                    'margin'=> 'sm',
+                                    'action'=> [
+                                        'type'  => 'uri',
+                                        'label' => 'CHECK OUT BITKUB MARKET',
+                                        'uri'   => 'https://www.bitkub.com/market'
+                                    ],
+                                    'style' => 'secondary'
                                 ]
                             ]
                         ]
