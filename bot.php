@@ -20,22 +20,6 @@ if ( sizeof($request_array['events']) > 0 ) {
         $reply_message = '';
         $reply_token = $event['replyToken'];
 
-        if ( $event['type'] == 'message' ) {
-            if( $event['message']['type'] == 'text' ) {
-                
-                $text = $event['message']['text'];
-                if( $text == 'สวัสดี') {
-                    $reply_message = 'สวัสดีนายท่าน ';
-                } else{
-                    $reply_message = 'สวัสดีนายท่าน '. $text;
-                }
-            } else { 
-                $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
-            }
-        } else {
-            $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
-        }
-
         if( strlen($reply_message) > 0 )
         {
             $data = [
