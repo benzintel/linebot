@@ -20,25 +20,17 @@ if ( sizeof($request_array['events']) > 0 ) {
         $reply_message = '';
         $reply_token = $event['replyToken'];
 
-        if ( $event['type'] == 'message' ) {
-            if( $event['message']['type'] == 'text' ) {
-                $reply_message = $event['message']['text'];
-            } else { 
-                $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
-            }
-        } else {
-            $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
-        }
-
         if( strlen($reply_message) > 0 )
         {
             $data = [
                 'replyToken' => $reply_token,
-                'messages' => [['type' => 'text', 'text' => $reply_message]]
+                'messages' => [['type' => 'text', 'text' => json_encode($request_array)]]
             ];
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-            send_reply_message($API_URL, $POST_HEADER, $post_body);
+            $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
+
+            echo "Result: ".$send_result."\r\n";
         }
     }
 }
