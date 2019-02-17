@@ -13,7 +13,7 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
 
 $jsonFlex = [
     "type" => "flex",
-    "altText" => "Flex Message",
+    "altText" => "Hello Flex Message",
     "contents" => [
       "type" => "bubble",
       "direction" => "ltr",
@@ -45,7 +45,7 @@ $jsonFlex = [
           ],
           [
             "type" => "text",
-            "text" => "2019.02.14 21 =>47 (GMT+0700)",
+            "text" => "2019.02.14 21:47 (GMT+0700)",
             "size" => "xs",
             "color" => "#B2B2B2"
           ],
