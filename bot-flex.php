@@ -134,7 +134,7 @@ $jsonFlex = [
 
 if ( sizeof($request_array['events']) > 0 ) {
     foreach ($request_array['events'] as $event) {
-        print_r($event);
+        var_dump($event);
         $reply_message = '';
         $reply_token = $event['replyToken'];
 
